@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ICCimg } from "../utils/Worldcupimg";
+import { useSelector } from "react-redux";
 const Head = () => {
+
+  const cartPlayers = useSelector((store) => store.team.items)
     return (
       <div className="header">
       <div className="logo">
@@ -21,7 +24,7 @@ const Head = () => {
           <Link to="/createteam">Create Team</Link>
         </li>
         <li>
-           <Link to="/yourteam">YourTeam</Link>
+           <Link to="/yourteam">Your Team - ({cartPlayers.length}) items</Link>
         </li>
       </ul>
     </div>

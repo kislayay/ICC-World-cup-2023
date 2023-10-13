@@ -6,7 +6,8 @@ import Team from './components/Teams';
 import Venue from './components/Venue';
 import CreateTeam from './components/CreateTeam';
 import YourTeam from './components/YourTeam';
-
+import { Provider } from 'react-redux';
+import Cricketstore from './Redux/store';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 
 
@@ -15,7 +16,7 @@ function App() {
    
   return (
     <div>
-
+       <Provider store={Cricketstore}>
       <BrowserRouter>
         <Head />
        
@@ -29,6 +30,7 @@ function App() {
             
         </Routes>
       </BrowserRouter>
+      </Provider>
       
     </div>
         
