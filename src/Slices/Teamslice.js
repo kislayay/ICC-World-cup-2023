@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const Teamslice = createSlice({
+ const Teamslice = createSlice({
     name: 'team',
     initialState: {
         items: [],

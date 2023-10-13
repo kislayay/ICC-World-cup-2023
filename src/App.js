@@ -7,17 +7,22 @@ import Venue from './components/Venue';
 import CreateTeam from './components/CreateTeam';
 import YourTeam from './components/YourTeam';
 import { Provider } from 'react-redux';
-import Cricketstore from './Redux/store';
+//import Cricketstore from './Redux/store';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import { persistor, Cricketstore } from './Redux/store'
+import { PersistGate } from 'redux-persist/integration/react';
+
 
 
 
 function App() {
    
   return (
+
     <div>
        <Provider store={Cricketstore}>
-      <BrowserRouter>
+       <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
         <Head />
        
         <Routes>
@@ -29,7 +34,8 @@ function App() {
             <Route path="/yourteam" element={<YourTeam />} />
             
         </Routes>
-      </BrowserRouter>
+       </BrowserRouter>
+        </PersistGate >
       </Provider>
       
     </div>
